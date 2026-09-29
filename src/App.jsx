@@ -214,7 +214,7 @@ export function App() {
                 <BarChart2 size={16} /> Overview
               </button>
               <button className={`tab-btn ${activeTab === 'AUTO_ENGINE' ? 'active' : ''}`} onClick={() => setActiveTab('AUTO_ENGINE')}>
-                <Zap size={16} color="var(--primary)" /> 300 Links/Day Engine
+                <Zap size={16} color="var(--primary)" /> Custom Links & Syndication
               </button>
               <button className={`tab-btn ${activeTab === 'BACKLINKS' ? 'active' : ''}`} onClick={() => setActiveTab('BACKLINKS')}>
                 <Link2 size={16} /> Backlinks
@@ -242,17 +242,37 @@ export function App() {
               </button>
             </nav>
 
-            {/* Tab Views */}
-            {activeTab === 'OVERVIEW' && <OverviewTab project={currentProject} />}
-            {activeTab === 'AUTO_ENGINE' && <AutoBacklinkEngineTab project={currentProject} />}
-            {activeTab === 'BACKLINKS' && <BacklinksTab project={currentProject} />}
-            {activeTab === 'REFERRING_DOMAINS' && <ReferringDomainsTab project={currentProject} />}
-            {activeTab === 'COMPETITOR_GAP' && <CompetitorGapTab project={currentProject} />}
-            {activeTab === 'LINK_OPPORTUNITIES' && <LinkOpportunitiesTab project={currentProject} onSelectOutreach={handleSelectOutreachFromOpportunities} />}
-            {activeTab === 'CONTENT_OPPORTUNITIES' && <ContentOpportunitiesTab project={currentProject} />}
-            {activeTab === 'OUTREACH' && <OutreachTab project={currentProject} selectedOpportunity={selectedOpportunity} />}
-            {activeTab === 'BACKLINK_MONITOR' && <BacklinkMonitorTab project={currentProject} />}
-            {activeTab === 'REPORTS' && <ReportsTab project={currentProject} />}
+            {/* Tab Views with State Persistence */}
+            <div style={{ display: activeTab === 'OVERVIEW' ? 'block' : 'none' }}>
+              <OverviewTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'AUTO_ENGINE' ? 'block' : 'none' }}>
+              <AutoBacklinkEngineTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'BACKLINKS' ? 'block' : 'none' }}>
+              <BacklinksTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'REFERRING_DOMAINS' ? 'block' : 'none' }}>
+              <ReferringDomainsTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'COMPETITOR_GAP' ? 'block' : 'none' }}>
+              <CompetitorGapTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'LINK_OPPORTUNITIES' ? 'block' : 'none' }}>
+              <LinkOpportunitiesTab project={currentProject} onSelectOutreach={handleSelectOutreachFromOpportunities} />
+            </div>
+            <div style={{ display: activeTab === 'CONTENT_OPPORTUNITIES' ? 'block' : 'none' }}>
+              <ContentOpportunitiesTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'OUTREACH' ? 'block' : 'none' }}>
+              <OutreachTab project={currentProject} selectedOpportunity={selectedOpportunity} />
+            </div>
+            <div style={{ display: activeTab === 'BACKLINK_MONITOR' ? 'block' : 'none' }}>
+              <BacklinkMonitorTab project={currentProject} />
+            </div>
+            <div style={{ display: activeTab === 'REPORTS' ? 'block' : 'none' }}>
+              <ReportsTab project={currentProject} />
+            </div>
           </>
         ) : (
           <div className="glass-panel" style={{ padding: '60px', textAlign: 'center' }}>

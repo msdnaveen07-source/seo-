@@ -9,6 +9,32 @@ export function OverviewTab({ project }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       
+      {/* SEO Root Cause Diagnostic Banner */}
+      <div className="glass-panel" style={{
+        padding: '20px 24px',
+        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(30, 20, 30, 0.95) 100%)',
+        border: '1px solid rgba(239, 68, 68, 0.4)',
+        borderRadius: '12px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+          <AlertTriangle size={24} color="#ef4444" style={{ flexShrink: 0, marginTop: '2px' }} />
+          <div>
+            <h4 style={{ fontSize: '1.05rem', margin: '0 0 6px 0', color: '#f87171' }}>
+              🔍 SEO Diagnosis: Domain Rating (DR = 0) அதிகரிப்பிற்கான முக்கிய தடை
+            </h4>
+            <p style={{ fontSize: '0.88rem', color: '#e2e8f0', lineHeight: 1.5, margin: 0 }}>
+              உங்கள் தளத்திற்கு <strong>1,000 Backlinks</strong> இருந்தாலும், Ahrefs-ல் <strong>DR 0</strong>-ஆக இருக்க பிரதான காரணம்: 
+              உங்களுக்கு வந்திருக்கும் லிங்க்களில் <strong style={{ color: '#ef4444' }}>94% Nofollow / Spam / Directory Links</strong> (வெறும் <strong>6% மட்டுமே Dofollow</strong>).
+            </p>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '12px', flexWrap: 'wrap', fontSize: '0.8rem' }}>
+              <span className="badge badge-warning">🚨 Need High DR (DR 50+) Dofollow Links</span>
+              <span className="badge badge-info">💡 Nofollow Links Link Juice/DR-ஐ கடத்தாது</span>
+              <span className="badge badge-emerald">📈 Aim for &gt;50% Dofollow Ratio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Fresh Data Attribution Banner */}
       <div className="glass-panel" style={{
         padding: '16px 24px',
